@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <limits.h>
+#include <sstream>
 
 namespace game
 {
@@ -169,6 +170,19 @@ bool Renderer::GuiAddText(const char *name, int layer, sf::Vector2i pos,
     t.setFont(font);
     gui.AddTextElement(name, layer, t);
     return true;
+}
+
+
+stl::string Renderer::GuiAddText(int layer, sf::Vector2i pos,
+    const char *text, unsigned charSize, const sf::Color &color)
+{
+    sf::Text t;
+    t.setCharacterSize(charSize);
+    t.setFillColor(color);
+    t.setPosition(sf::Vector2f(pos));
+    t.setString(text);
+    t.setFont(font);
+    return gui.AddTextElement(layer, t);
 }
 
 bool Renderer::GuiAddTile(const char *name, int layer, sf::Vector2i pos, sf::Vector2i size, unsigned tileId)
@@ -339,34 +353,32 @@ void Renderer::EndDraw()
     window->display();
 }
 
-void Renderer::DrawTiledSurface(const ITiledSurface &surface)
-{
+sf::Vector2i Renderer::GetViewCorner() {
     sf::Vector2f absSize;
     absSize.x = abs(worldView.getSize().x);
     absSize.y = abs(worldView.getSize().y);
-    sf::Vector2i bottomLeft = sf::Vector2i(worldView.getCenter() - absSize / 2.0f);
-    sf::Vector2i topRight = sf::Vector2i(worldView.getCenter() + absSize / 2.0f);
+    return sf::Vector2i(worldView.getCenter() - absSize / 2.0f);
+}
 
+void Renderer::DrawTiledSurface(const ITiledSurface &surface)
+{
     sf::Vector2i spos = surface.GetPos();
     sf::Vector2u ssize = surface.GetSize();
 
-    for (int i = bottomLeft.x; i <= topRight.x; ++i)
-        for (int j = bottomLeft.y; j <= topRight.y; ++j)
+    for (int i = spos.x; i <= spos.x + ssize.x; ++i)
+        for (int j = spos.y; j <= spos.y + ssize.y; ++j)
         {
-            if (i >= spos.x && i < spos.x + ssize.x && j >= spos.y && j <= spos.y + ssize.y)
+            unsigned tileId = surface.GetTileId(i, j);
+            if (tileId)
             {
-                unsigned tileId = surface.GetTileId(i, j);
-                if (tileId)
-                {
-                    tiles[tileId]->setPosition(sf::Vector2f(i, j));
-                    window->draw(*tiles[tileId]);
-                }
+                tiles[tileId]->setPosition(sf::Vector2f(i, j));
+                window->draw(*tiles[tileId]);
             }
-            else if (outerTileId)
-            {
-                tiles[outerTileId]->setPosition(sf::Vector2f(i, j));
-                window->draw(*tiles[outerTileId]);
-            }
+//            else if (outerTileId)
+//            {
+//                tiles[outerTileId]->setPosition(sf::Vector2f(i, j));
+//                window->draw(*tiles[outerTileId]);
+//            }
         }
 }
 
@@ -397,6 +409,7 @@ void Renderer::DrawGui(int minLayer, int maxLayer)
             window->draw(*gui.commonElements[id]);
             break;
         case GUI::ElemRec::TEXT:
+//            stl::cout << gui.textElements[id]->getString().toAnsiString() << stl::endl;
             window->draw(*gui.textElements[id]);
             break;
         case GUI::ElemRec::TILE:
@@ -493,6 +506,19 @@ bool Renderer::GUI::AddTextElement(const char *name, int layer, const sf::Text &
     return true;
 }
 
+stl::string Renderer::GUI::AddTextElement(int layer, const sf::Text &elem)
+{
+    ElemRec rec;
+    rec.type = ElemRec::TEXT;
+    rec.id = InsertStable(stl::make_unique<sf::Text>(elem), textElements, freeTextIds);
+    rec.layer = layer;
+    stl::stringstream name;
+    name << "textelement" << (rec.id);
+    nameMap.emplace(name.str().c_str(), rec);
+    layerMap.emplace(layer, rec);
+    return name.str();
+}
+
 bool Renderer::GUI::AddTileElement(const char *name, int layer, const GuiTile &elem)
 {
     ElemRec rec;
@@ -507,15 +533,23 @@ bool Renderer::GUI::AddTileElement(const char *name, int layer, const GuiTile &e
 void Renderer::GUI::RemoveElement(const char *name)
 {
     auto elem = nameMap.find(name);
+    stl::cout << name << stl::endl;
     if (elem != nameMap.end())
     {
+        stl::cout << "removeFrom NameMap" << stl::endl;
         ElemRec rec = elem->second;
         nameMap.erase(elem);
         auto layer = layerMap.equal_range(rec.layer);
+
+        stl::cout << "getting Layer " << rec.layer << stl::endl;
         for (auto itr = layer.first; itr != layer.second; ++itr)
         {
+            stl::cout << "itr " << itr->first << stl::endl;
+
             if (itr->second.id == rec.id && itr->second.type == rec.type)
             {
+                stl::cout << "erase " << itr->first << stl::endl;
+
                 layerMap.erase(itr);
                 break;
             }

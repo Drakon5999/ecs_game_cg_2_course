@@ -42,11 +42,11 @@ void RemoveStable(unsigned id, stl::vector<T> &v, stl::vector<IntType> &freeIds)
     if (id >= v.size())
         return;
 
-    if (id == v.size() - 1)
-        v.pop_back();
-    else
-        v[id].~T();
-        freeIds.push_back(id);
+//    if (id == v.size() - 1)
+//        v.pop_back();
+//    else
+    v[id].~T();
+    freeIds.push_back(id);
 }
 
 template <typename IntType1, typename IntType2, typename VType1, typename VType2>

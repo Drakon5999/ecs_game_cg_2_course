@@ -66,6 +66,7 @@ public:
     T *GetComp() { return (T *)GetCompRaw(GetComponentTid<T>()); }
     virtual void *GetCompRaw(ComponentTypeId tid) { return nullptr; }
     virtual bool SetComp(const char *compName, const char *value) { return false; }
+    virtual ~IEntity() = default;
 
 private:
     EntityDesc desc;

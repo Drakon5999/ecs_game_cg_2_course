@@ -144,6 +144,14 @@ struct CompCurrentAttackArea : ecs::Component
     sf::Vector2i shift = sf::Vector2i(0, 0);
 };
 
+struct CompMessage : ecs::Component
+{
+    int layer{};
+    stl::string text{};
+    unsigned size{};
+    sf::Color color;
+};
+
 struct CompOwner : ecs::Component
 {
     ecs::EntityDesc owner = ecs::EntityDesc(ecs::GetEntityTid<void>(), 0);
@@ -187,23 +195,24 @@ struct TagEnemy : ecs::Component {};
     you want to create by string names (and therefore from files).
 */
 
-ECS_REGISTER_COMPONENT(CompName)
-ECS_REGISTER_COMPONENT(CompPos)
-ECS_REGISTER_COMPONENT(CompDir)
-ECS_REGISTER_COMPONENT(CompMoveDir)
-ECS_REGISTER_COMPONENT(CompHealth)
-ECS_REGISTER_COMPONENT(CompStamina)
-ECS_REGISTER_COMPONENT(CompMana)
-ECS_REGISTER_COMPONENT(CompArmor)
-ECS_REGISTER_COMPONENT(CompDamage)
-ECS_REGISTER_COMPONENT(CompConsumption)
-ECS_REGISTER_COMPONENT(CompTimeToLive)
-ECS_REGISTER_COMPONENT(CompDrawTileInfo)
-ECS_REGISTER_COMPONENT(CompOwnedItems)
-ECS_REGISTER_COMPONENT(CompPosPattern)
 ECS_REGISTER_COMPONENT(CompActivity)
-ECS_REGISTER_COMPONENT(CompVisibility)
+ECS_REGISTER_COMPONENT(CompArmor)
+ECS_REGISTER_COMPONENT(CompConsumption)
 ECS_REGISTER_COMPONENT(CompCurrentAttackArea)
+ECS_REGISTER_COMPONENT(CompDamage)
+ECS_REGISTER_COMPONENT(CompDir)
+ECS_REGISTER_COMPONENT(CompDrawTileInfo)
+ECS_REGISTER_COMPONENT(CompHealth)
+ECS_REGISTER_COMPONENT(CompMana)
+ECS_REGISTER_COMPONENT(CompMessage)
+ECS_REGISTER_COMPONENT(CompMoveDir)
+ECS_REGISTER_COMPONENT(CompName)
+ECS_REGISTER_COMPONENT(CompOwnedItems)
 ECS_REGISTER_COMPONENT(CompOwner)
 ECS_REGISTER_COMPONENT(CompParty)
+ECS_REGISTER_COMPONENT(CompPos)
+ECS_REGISTER_COMPONENT(CompPosPattern)
+ECS_REGISTER_COMPONENT(CompStamina)
+ECS_REGISTER_COMPONENT(CompTimeToLive)
+ECS_REGISTER_COMPONENT(CompVisibility)
 ECS_REGISTER_COMPONENT(CompVisionRadius)

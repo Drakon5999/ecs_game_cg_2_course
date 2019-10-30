@@ -108,3 +108,7 @@ void Enemy::OnUpdate()
 
     GetComp<CompMoveDir>()->v = dir;
 }
+
+void Message::OnDestroy() {
+    game::gRenderer.GuiRemoveElement(this->GetComp<CompName>()->value.c_str());
+}

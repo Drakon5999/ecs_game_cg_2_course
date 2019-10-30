@@ -50,6 +50,28 @@ public:
     ECS_ENTITY_DEFAULTS(AttackArea)
 };
 
+class Message : public ecs::Entity<
+    CompPos,
+    CompName,
+    CompTimeToLive,
+    CompMessage,
+    CompActivity>
+{
+public:
+    void OnDestroy() override;
+    ECS_ENTITY_DEFAULTS(Message)
+    Message(sf::Vector2i pos, unsigned ttl, unsigned color, unsigned size, int layer, stl::string text) {
+        this->GetComp<CompPos>()->v = pos;
+        this->GetComp<CompTimeToLive>()->ticks = ttl;
+
+        auto* msg = this->GetComp<CompMessage>();
+        msg->color = sf::Color(color);
+        msg->size = size;
+        msg->layer = layer;
+        msg->text = std::move(text);
+    }
+};
+
 class Walls : public ecs::Entity<
     CompPosPattern,
     CompDrawTileInfo,

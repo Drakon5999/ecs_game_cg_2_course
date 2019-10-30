@@ -96,7 +96,7 @@ GameResults Game::StartLevel(const char *levelFilename)
         while (lastTime + UPDATE_PERIOD > gTime.GetTime())
             ;
         lastTime = gTime.GetTime();
-        // Sleep(200);
+        stl::this_thread::yield();
     }
     return GameResults();
 }

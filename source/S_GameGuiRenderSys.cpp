@@ -26,6 +26,14 @@ void GameGuiRenderSys::OnEvent(const game::EventRenderWindowWasCreated &evt)
     evt.wnd->setSize(sf::Vector2u(wSize));
 }
 
+void GameGuiRenderSys::OnEvent(const game::EventSfml &evt)
+{
+    if (evt.type == sf::Event::Resized) {
+        // change viewport here
+        game::gRenderer.SetCameraViewport(0, 0, evt.size.width, evt.size.height);
+    }
+}
+
 void GameGuiRenderSys::OnEvent(const game::EventRendererWasInited &evt)
 {
     guiTextures.emplace("backBlock", game::gRenderer.AddTexture("tileset/Sliced/world_24x24/oryx_16bit_fantasy_world_1969.png"));

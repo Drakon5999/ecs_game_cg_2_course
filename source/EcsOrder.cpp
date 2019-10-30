@@ -24,6 +24,7 @@ EntityTypeId EntityManager::forwardUpdateOrder[] = {
 };
 
 EntityTypeId EntityManager::backwardUpdateOrder[] = {
+    ECS_ORDER_ELEMENT(GameMessagesSys),
     ECS_ORDER_ELEMENT(GameRenderSys),
     ECS_ORDER_ELEMENT(GameGuiRenderSys)
     // Here you can place your systems, which will be updated last (in that order),

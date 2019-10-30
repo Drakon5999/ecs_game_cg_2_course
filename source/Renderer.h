@@ -57,6 +57,8 @@ public:
     bool GuiAddColoredRect(const char *name, int layer, sf::Vector2i pos, sf::Vector2i size, const sf::Color &color);
     bool GuiAddText(const char *name, int layer, sf::Vector2i pos, const char *text,
         unsigned charSize = 30, const sf::Color &color = sf::Color(0xFFFFFFFF));
+    stl::string GuiAddText(int layer, sf::Vector2i pos, const char *text,
+        unsigned charSize = 30, const sf::Color &color = sf::Color(0xFFFFFFFF));
     bool GuiAddTile(const char *name, int layer, sf::Vector2i pos, sf::Vector2i size, unsigned tileId);
 
     void GuiChangeLayer(const char *elemName, int layer);
@@ -73,6 +75,7 @@ public:
     void BeginDraw(sf::Color clearColor);
     void BeginDrawWorld();
     void EndDraw();
+    sf::Vector2i GetViewCorner();
     // Draws world tiles in world viewport.
     // There is no z-buffer, so take care of the draw ordering.
     void DrawTiledSurface(const ITiledSurface &surface);
@@ -127,6 +130,7 @@ private:
 
         bool AddCommonElement(const char *name, int layer, const sf::RectangleShape &elem);
         bool AddTextElement(const char *name, int layer, const sf::Text &elem);
+        stl::string AddTextElement(int layer, const sf::Text &elem);
         bool AddTileElement(const char *name, int layer, const GuiTile &elem);
         void RemoveElement(const char *name);
 

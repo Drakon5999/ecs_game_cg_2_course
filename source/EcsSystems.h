@@ -35,15 +35,24 @@ public:
     void OnUpdate() override;
 };
 
+class GameMessagesSys : public ecs::System
+{
+public:
+    ECS_SYSTEM_DEFAULTS(GameMessagesSys)
+    void OnUpdate() override;
+};
+
 class GameGuiRenderSys :
     public ecs::System,
     public game::EventListener<game::EventRenderWindowWasCreated>,
-    public game::EventListener<game::EventRendererWasInited>
+    public game::EventListener<game::EventRendererWasInited>,
+    public game::EventListener<game::EventSfml>
 {
 public:
     ECS_SYSTEM_DEFAULTS(GameGuiRenderSys)
     void OnEvent(const game::EventRenderWindowWasCreated &evt) override;
     void OnEvent(const game::EventRendererWasInited &evt) override;
+    void OnEvent(const game::EventSfml &evt) override;
     void OnUpdate() override;
 };
 
@@ -72,6 +81,7 @@ Register here all of the systems you want to be processed.
 ECS_REGISTER_SYSTEM(GameInputControllerSys)
 ECS_REGISTER_SYSTEM(GameRenderSys)
 ECS_REGISTER_SYSTEM(GameAttackSys)
+ECS_REGISTER_SYSTEM(GameMessagesSys)
 ECS_REGISTER_SYSTEM(GameGuiRenderSys)
 ECS_REGISTER_SYSTEM(GameBackgroundGuiRenderSys)
 ECS_REGISTER_SYSTEM(GameMoveSys)
