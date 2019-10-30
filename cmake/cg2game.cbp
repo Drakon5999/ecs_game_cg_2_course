@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="cg2game"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\deps\;CMake Files\..\deps\lib64\;CMake Files\..\deps\lib64\linux\;CMake Files\..\deps\lib64\linux\lib\;CMake Files\..\deps\lib64\linux\lib\cmake\;CMake Files\..\deps\lib64\linux\lib\cmake\SFML\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/ar7is7/graphics_course/template_clear/cmake"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/ar7is7/graphics_course/template_clear/cmake"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cg2game">
+				<Option output="/home/ar7is7/graphics_course/template_clear/build/linux/cg2game" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ar7is7/graphics_course/template_clear/cmake"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ar7is7/graphics_course/template_clear/cmake/../deps/include"/>
+					<Add directory="/home/ar7is7/graphics_course/template_clear/deps/lib64/linux/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 cg2game"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cg2game/fast">
+				<Option output="/home/ar7is7/graphics_course/template_clear/build/linux/cg2game" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ar7is7/graphics_course/template_clear/cmake"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ar7is7/graphics_course/template_clear/cmake/../deps/include"/>
+					<Add directory="/home/ar7is7/graphics_course/template_clear/deps/lib64/linux/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 cg2game/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/ar7is7/graphics_course/template_clear/cmake"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/ar7is7/graphics_course/template_clear/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/ECS.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/ECS.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/EcsComponents.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/EcsEntities.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/EcsEntities.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/EcsOrder.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/EcsSystems.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/Event.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/Game.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/Game.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/GameDataLoad.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/GameDataLoad.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/GameEvents.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/GameLevelData.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/GameStructures.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/GameStructures.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/Renderer.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/Renderer.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/S_GameAttackSys.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/S_GameGuiRenderSys.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/S_GameInputController.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/S_GameMove.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/S_GameRender.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/S_MessagesSys.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/Timer.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/Utils.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/Utils.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/main.cpp">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/source/stl.h">
+			<Option target="cg2game"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/cmake/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/cmake/../deps/lib64/linux/lib/cmake/SFML/SFMLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\deps\lib64\linux\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/cmake/../deps/lib64/linux/lib/cmake/SFML/SFMLConfigDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\deps\lib64\linux\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/cmake/../deps/lib64/linux/lib/cmake/SFML/SFMLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\deps\lib64\linux\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/cmake/../deps/lib64/linux/lib/cmake/SFML/SFMLSharedTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\deps\lib64\linux\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="/home/ar7is7/graphics_course/template_clear/cmake/../deps/lib64/linux/lib/cmake/SFML/SFMLSharedTargets.cmake">
+			<Option virtualFolder="CMake Files\..\deps\lib64\linux\lib\cmake\SFML\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

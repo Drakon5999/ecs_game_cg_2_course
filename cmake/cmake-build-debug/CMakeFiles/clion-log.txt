@@ -1,0 +1,5 @@
+/home/ar7is7/Desktop/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/ar7is7/graphics_course/template_clear/cmake
+-- Found SFML 2.5.1 in /home/ar7is7/graphics_course/template_clear/deps/lib64/linux/lib/cmake/SFML
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ar7is7/graphics_course/template_clear/cmake
