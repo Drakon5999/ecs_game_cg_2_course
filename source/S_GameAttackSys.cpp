@@ -56,7 +56,7 @@ void GameAttackSys::OnUpdate()
                 auto viewCorner = game::gRenderer.GetViewCorner();
                 auto screenCords = pos->v - viewCorner;
                 ecs::gEntityManager.CreateEntity<Message>(
-                        sf::Vector2i((screenCords.x + 3) * cellSize.x, vpSize.y - (screenCords.y + 2) * cellSize.y),
+                        sf::Vector2i((screenCords.x + 1) * cellSize.x, vpSize.y - (screenCords.y + 1) * cellSize.y),
                         1/*ttl*/, 0xFF0000FFU/*color*/, 22/*size*/, 2/*layer*/, damageName.str());
                 if (h->value <= 0.0f)
                     ecs::gEntityManager.DestroyEntity(creature->GetDesc());

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(cg2game)
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=leak")
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_GENERATOR_PLATFORM x64)
 set(SFML_DIR "../deps/lib64/linux/lib/cmake/SFML")

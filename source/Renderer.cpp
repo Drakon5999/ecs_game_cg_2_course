@@ -426,6 +426,9 @@ void Renderer::DrawGui(int minLayer, int maxLayer)
 
 void Renderer::SetCameraViewport(int x, int y, unsigned width, unsigned height)
 {
+    if (!window) {
+        return;
+    }
     sf::Vector2f wSize = sf::Vector2f(window->getSize());
     worldView.setViewport(sf::FloatRect(x / wSize.x, y / wSize.y, width / wSize.x, height / wSize.y));
     //worldView.setSize(float(width), -float(height));
@@ -533,22 +536,21 @@ bool Renderer::GUI::AddTileElement(const char *name, int layer, const GuiTile &e
 void Renderer::GUI::RemoveElement(const char *name)
 {
     auto elem = nameMap.find(name);
-    stl::cout << name << stl::endl;
     if (elem != nameMap.end())
     {
-        stl::cout << "removeFrom NameMap" << stl::endl;
+//        stl::cout << "removeFrom NameMap" << stl::endl;
         ElemRec rec = elem->second;
         nameMap.erase(elem);
         auto layer = layerMap.equal_range(rec.layer);
 
-        stl::cout << "getting Layer " << rec.layer << stl::endl;
+//        stl::cout << "getting Layer " << rec.layer << stl::endl;
         for (auto itr = layer.first; itr != layer.second; ++itr)
         {
-            stl::cout << "itr " << itr->first << stl::endl;
+//            stl::cout << "itr " << itr->first << stl::endl;
 
             if (itr->second.id == rec.id && itr->second.type == rec.type)
             {
-                stl::cout << "erase " << itr->first << stl::endl;
+//                stl::cout << "erase " << itr->first << stl::endl;
 
                 layerMap.erase(itr);
                 break;

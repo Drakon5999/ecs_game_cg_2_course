@@ -30,7 +30,7 @@ void GameGuiRenderSys::OnEvent(const game::EventSfml &evt)
 {
     if (evt.type == sf::Event::Resized) {
         // change viewport here
-        game::gRenderer.SetCameraViewport(0, 0, evt.size.width, evt.size.height);
+        game::gRenderer.SetCameraViewport(vpPos.x, vpPos.y, vpSize.x, vpSize.y);
     }
 }
 
